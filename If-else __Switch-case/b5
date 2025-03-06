@@ -6,7 +6,9 @@ int main()
 {
     float a,b,c;
     float delta,x1,x2,x;
+    printf("Nhap phuong trinh bac 2: ");
     scanf("%f %f %f",&a,&b,&c);
+    printf("%.3fx^2 + %.3fx + %.3f = 0\n",a,b,c);
     delta=b*b-4*a*c;
     if(delta>0)
     {
