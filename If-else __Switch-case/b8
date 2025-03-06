@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    double a,b,c,p,v,s;
+    printf("Nhap 3 so:");
+    scanf("%lf %lf %lf",&a,&b,&c);
+    v=a+b+c;
+    p=v*(v-2*a)*(v-2*b)*(v-2*c);
+    s=sqrt(p)/4;
+    if(a+b>c&&a+c>b&&b+c>a)
+    {
+        if(a==b&&a==c)
+        {
+            printf("La tam giac deu\n");
+        }
+        else if((a*a+b*b==c*c||b*b+c*c==a*a||a*a+c*c==b*b)&&(a==b||b==c||a==c))
+        {
+            printf("La tam giac vuong can\n");
+        }
+        else if(a*a+b*b==c*c||b*b+c*c==a*a||a*a+c*c==b*b)
+        {
+            printf("La tam giac vuong\n");
+        }
+        else if(a==b||b==c||a==c)
+        {
+            printf("La tam giac can\n");
+        }
+        else
+        {
+            printf("La tam giac thuong\n");
+        }
+
+        printf("Chu vi Tam Giac= %.3f\n",v);
+        printf("Dien tich Tam Giac= %.3f\n",s);
+    }
+    else
+    {
+        printf("Khong tao thanh tam giac\n");
+    }
+
+    return 0;
+}
