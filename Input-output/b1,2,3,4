@@ -1,1 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
+int main()
+{
+    int a,x,y,z,m,n;
+    float r,s,v;
+    printf("Nhap a: ");
+    scanf("%d",&a);
+    printf("a^2=%d a^3=%d a^4=%d\n",a*a ,a*a*a ,a*a*a*a);
+    printf("Nhap ngay: ");
+    scanf("%d %d %d",&x,&y,&z);
+    printf("Hom nay la ngay:%02d/%02d/%04d\n",x,y,z);
+    printf("Nhap 2 so nguyen: ");
+    scanf("%d %d",&n,&m);
+    printf("%d+%d=%d \n%d-%d=%d \n%d*%d=%d \n%d/%d=%d",n,m,n+m,n,m,n-m,n,m,n*m,n,m,n/m);
+    if(n%m!=0)
+    {
+        printf(" du %d\n",n%m);
+    }
+    else
+    {
+        printf("\n");
+    }
+    printf("Nhap ban kinh hinh cau: ");
+    scanf("%f",&r);
+    s=4*(r*r);
+    v=(4*(r*r*r))/3;
+    printf("Dien tich= %f%c\nThe tich= %f%c\n",s,227,v,227);
+    return 0;
+}
