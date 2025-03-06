@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    float d;
+    printf("Diem :");
+    scanf("%f",&d);
+    if(d<5)
+    {
+        printf("YEU");
+    }
+    if(5<=d&&d<7)
+    {
+        printf("TRUNG BINH");
+    }
+    if(7<=d&&d<8)
+    {
+        printf("KHA");
+    }
+    if(8<=d&&d<=9)
+    {
+        printf("GIOI");
+    }
+    if(9<d)
+    {
+        printf("XUAT CHUNG");
+    }
+    return 0;
+}
