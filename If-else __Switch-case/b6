@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    float a,b,c,d,e,f,x,y;
+    printf("Nhap he phuong trinh: ");
+    scanf("%f %f %f %f %f %f",&a,&b,&c,&d,&e,&f);
+    y=(a*f-c*d)/(a*e-b*d);
+    x=(c-b*y)/a;
+    printf("%fx + %fy = %f\n",a,b,c);
+    printf("%fx + %fy = %f\n",d,e,f);
+    printf("x=%f \ny=%f",x,y);
+    return 0;
+}
