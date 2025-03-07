@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int i,x,n=0;
+    printf("Nhap vao 10 so nguyen bat ky roi tinh tong cho\n");
+    for(i=0;i<10;i++)
+    {
+        scanf("%d",&x);
+        n=n+x;
+    }
+    printf("%d",n);
+    return 0;
+}
