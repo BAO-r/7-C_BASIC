@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int giai_thua(int n)
+{
+    int i,m=1;
+    for(i=1;i<=n;i++)
+    {
+        m=m*i;
+    }
+    return m;
+}
+
+int main()
+{
+    int i,n,m;
+    printf("Nhap 1 so gi di: ");
+    scanf("%d",&n);
+    m=giai_thua(n);
+    printf("%d! = %d",n,m);
+    return 0;
+}
