@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void uocChung(int a,int b)
+{
+    int c,d,r;
+    c=a;
+    d=b;
+    while(b!=0)
+    {
+        r=a%b;
+        a=b;
+        b=r;
+    }
+    printf("uoc chung lon nhat cua %d & %d la %d\n",c,d,a);
+}
+
+void boiChung(int a,int b)
+{
+    int c,d,r,u,i;
+    c=a;
+    d=b;
+    while(b!=0)
+    {
+        r=a%b;
+        a=b;
+        b=r;
+    }
+    u=c/a;
+    i=u*d;
+    printf("boi chung nho nhat cua %d & %d la %d\n",c,d,i);
+}
+
+int main()
+{
+    int a,b,i=1;
+    while(i!=0)
+    {
+        printf("Nhap 2 so nguyen nao cung duoc: ");
+        scanf("%d %d",&a,&b);
+        uocChung(a,b);
+        boiChung(a,b);
+        printf("Nhap 1 de tiep tuc\nNhap 0 de stop\n");
+        scanf("%d",&i);
+    }
+    return 0;
+}
