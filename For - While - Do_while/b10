@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int i,t;
+    double n,u,m,l;
+    double c=sqrt(5);
+    printf("Nhap so thu tu trong day FIBONACCI :");
+    scanf("%lf",&n);
+    m=pow((1+c)/2,n);
+    l=pow((1-c)/2,n);
+    u=(1/c)*(m-l);
+    printf("So thu %.f trong day FIBONACCI la %.f\n",n,u);
+    return 0;
+}
