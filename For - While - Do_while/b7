@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int i,n;
+    double m=0,k=1;
+    printf("Nhap 1 so gi di: ");
+    scanf("%d",&n);
+    printf("S = ");
+    for(k=1; k<=n; k++)
+    {
+        m=m+(1/k);
+        if(k==1)
+        {
+            printf("1 + ");
+        }
+        else
+        {
+            printf("1/%.0f + ",k);
+        }
+    }
+    printf("\b\b \nS = %f",m);
+    return 0;
+}
