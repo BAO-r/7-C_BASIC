@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void nhap(int *a)
+{
+    int i;
+    for(i=0;i<10;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+}
+
+void in_mang(int *a)
+{
+    int i;
+    for(i=0;i<10;i++)
+    {
+        printf("%d ",a[i]);
+    }
+}
+
+int main()
+{
+    int a[10];
+    printf("Nhap 10 so nguyen: ");
+    nhap(a);
+    in_mang(a);
+    return 0;
+}
