@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    double x,c,n=2014;
+    printf("Nhap tong GDP: \n");
+    scanf("%lf",&x);
+    printf("\tNam\t\tGDP\n");
+    printf("\t%.f\t\t%f\n",n,x);
+    n++;
+    c=x;
+    while(x<=2*c)
+    {
+        scanf("%lf",&x);
+        printf("\t%.f\t\t%f\n",n++,x);
+    }
+    return 0;
+}
