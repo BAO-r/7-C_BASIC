@@ -14,23 +14,23 @@ int main()
     {
         if(a==b&&a==c)
         {
-            printf("La tam giac deu\n");
+            printf("Tao thanh tam giac deu\n");
         }
         else if((a*a+b*b==c*c||b*b+c*c==a*a||a*a+c*c==b*b)&&(a==b||b==c||a==c))
         {
-            printf("La tam giac vuong can\n");
+            printf("Tao thanh tam giac vuong can\n");
         }
         else if(a*a+b*b==c*c||b*b+c*c==a*a||a*a+c*c==b*b)
         {
-            printf("La tam giac vuong\n");
+            printf("Tao thanh tam giac vuong\n");
         }
         else if(a==b||b==c||a==c)
         {
-            printf("La tam giac can\n");
+            printf("Tao thanh tam giac can\n");
         }
         else
         {
-            printf("La tam giac thuong\n");
+            printf("Tao thanh tam giac thuong\n");
         }
 
         printf("Chu vi Tam Giac= %.3f\n",v);
