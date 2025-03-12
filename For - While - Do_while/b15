@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+    int x,i,n;
+    printf("Nhap so tien gui tiet kiem: ");
+    scanf("%d",&x);
+    printf("%d dong\n",x);
+    printf("Gui roi thi muon sau bao nhieu thang thi rut tien: ");
+    scanf("%d",&n);
+    printf("%d thang\n",n);
+    for(i=0; i<n; i++)
+    {
+        x=x+((x*45)/10000);
+    }
+    printf("\nSau %d thang bro nhan duoc %d dong.",n,x);
+    return 0;
+}
