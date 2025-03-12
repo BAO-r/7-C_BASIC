@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void nhap(int *a)
+{
+    int i;
+    for(i=0;i<10;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+}
+
+void in_mang(int *a)
+{
+    int i;
+    for(i=0;i<10;i++)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\n");
+}
+
+void in_nguoc(int *a)
+{
+    int i;
+    for(i=9;i>=0;i--)
+    {
+        printf("%d ",a[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    int a[10];
+    printf("Nhap dung 10 so nguyen: ");
+    nhap(a);
+    printf("In xuoi: ");
+    in_mang(a);
+    printf("In nguoc: ");
+    in_nguoc(a);
+    return 0;
+}
