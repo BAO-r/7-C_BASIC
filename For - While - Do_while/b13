@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+double giai_thua(double n)
+{
+    double i;
+    double m=1;
+    for(i=1; i<=n; i++)
+    {
+        m=m*i;
+    }
+    return m;
+}
+
+int main()
+{
+    double n,k,x,c,eps,e=1,i=1;
+    printf("Nhap x di: ");
+    scanf("%lf",&x);
+    printf("Nhap do chinh xac:");
+    scanf("%lf",&eps);
+    do
+    {
+        k=giai_thua(i);
+        n=pow(x,i)/k;
+        e=e+n;
+        i++;
+    }
+    while(fabs(n)>eps);
+    printf("\n=> e^(%.2f) = %f",x,e);
+    return 0;
+}
