@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <malloc.h>
+
+void nhap(int *a,int n)
+{
+    int i;
+    for(i=0; i<n; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+}
+
+void dem(int *a,int n,int t)
+{
+    int i,k=0;
+    for(i=0; i<n; i++)
+    {
+        k++;
+        if(a[i]==t)
+        {
+            break;
+        }
+    }
+    if(k!=0)
+    {
+        printf("So day xuat hien %d lan\n",k);
+    }
+    else
+    {
+        printf("Sao lai nhap so khong xuat hien trong mang?\n");
+    }
+}
+
+
+int main()
+{
+    //freopen("C:\\New folder\\input.txt","r",stdin);
+    int a[10000];
+    int n,i;
+    printf("Muon nhap bao nhieu so?\n");
+    scanf("%d",&n);
+    printf("Vay thi nhap di: \n");
+    nhap(a,n);
+    printf("===================================\n");
+    printf("Doi dem so nao?\n");
+    scanf("%d",&i);
+    dem(a,n,i);
+    return 0;
+}
