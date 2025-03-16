@@ -60,7 +60,6 @@ void tong_am(int *a,int m)
 
 int main()
 {
-    //freopen("C:\\New folder\\input.txt","r",stdin);
     int a[100000];
     int n;
     printf("Muon nhap bao nhieu so?\n");
