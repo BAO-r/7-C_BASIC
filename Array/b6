@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <malloc.h>
+
+void nhap(int *a,int n)
+{
+    int i;
+    for(i=0; i<n; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+}
+
+void in(int *a,int n)
+{
+    int i;
+    for(i=0; i<n; i++)
+    {
+        printf("%d ",a[i]);
+    }
+}
+
+void doi_so(int *a,int n)
+{
+    int i;
+    for(i=0; i<n; i++)
+    {
+        if(a[i]<0)
+        {
+            a[i]=0;
+        }
+    }
+    in(a,n);
+}
+
+int main()
+{
+    int a[10000];
+    int n,i;
+    printf("Muon nhap bao nhieu so?\n");
+    scanf("%d",&n);
+    printf("Vay thi nhap di: \n");
+    nhap(a,n);
+    printf("===============================================\n");
+    printf("HE...HE...HE...!\nCac so am trong mang cua ban da bi doi thanh 0:\n\n");
+    doi_so(a,n);
+    return 0;
+}
