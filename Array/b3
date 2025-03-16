@@ -67,6 +67,7 @@ int main()
     scanf("%d",&n);
     printf("Vay thi nhap di: \n");
     nhap(a,n);
+    printf("===================================\n");
     tong_cac_so(a,n);
     tong_duong(a,n);
     tong_am(a,n);
