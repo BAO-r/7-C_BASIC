@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <malloc.h>
+
+void nhap(int *a,int n)
+{
+    int i;
+    for(i=0; i<n; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+}
+
+void tong_cac_so(int *a,int m)
+{
+    int i,n=0;
+    for(i=0; i<m; i++)
+    {
+        n=n+a[i];
+    }
+    printf("____________Tong %d so tren = %d\n",m,n);
+    printf("_Trung binh cong %d so tren = %f\n",m,(double) n/m);
+}
+
+void tong_duong(int *a,int m)
+{
+    int i,n=0,k=0;
+    for(i=0; i<m; i++)
+    {
+        if(a[i]>0)
+        {
+            n=n+a[i];
+            k++;
+        }
+    }
+    printf("____________Tong cac so duomg = %d\n",n);
+    printf("_Trung binh cong cac so duong = %f\n",(double) n/k);
+}
+
+void tong_am(int *a,int m)
+{
+    int i,n=0,k=0;
+    for(i=0; i<m; i++)
+    {
+        if(a[i]<0)
+        {
+            n=n+a[i];
+            k++;
+        }
+    }
+    if(k==0)
+    {
+        k=1;
+    }
+    printf("____________Tong cac so am = %d\n",n);
+    printf("_Trung binh cong cac so am = %f\n",(double) n/k);
+}
+
+int main()
+{
+    //freopen("C:\\New folder\\input.txt","r",stdin);
+    int a[100000];
+    int n;
+    printf("Muon nhap bao nhieu so?\n");
+    scanf("%d",&n);
+    printf("Vay thi nhap di: \n");
+    nhap(a,n);
+    tong_cac_so(a,n);
+    tong_duong(a,n);
+    tong_am(a,n);
+    return 0;
+}
