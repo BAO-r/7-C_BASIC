@@ -13,14 +13,6 @@ void nhap(int *a,int n)
     }
 }
 
-void doi_cho(int *a,int n,int i)
-{
-    int t;
-    t=a[n];
-    a[n]=a[i];
-    a[i]=t;
-}
-
 void so_lon(int *a,int n)
 {
     int i,k,max=a[0];
