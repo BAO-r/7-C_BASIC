@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+double fibonacci(double n)
+{
+    int i,t;
+    double u,m,l;
+    double c=sqrt(5);
+    m=pow((1+c)/2,n);
+    l=pow((1-c)/2,n);
+    u=(1/c)*(m-l);
+    return u;
+}
+
+int main()
+{
+    double x,c;
+    printf("Muon tim phân tu thu may trong day FIBONACCI :");
+    scanf("%lf",&x);
+    printf("================================================|\n");
+    c=fibonacci(x);
+    printf("Phan tu thu %.f trong day FIBONACCI la %.f\n",x,c);
+    return 0;
+}
