@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <malloc.h>
+
+void nhap(int a[][3])
+{
+    int i,j;
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+}
+
+void inMang(int a[][3])
+{
+    int i,j;
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+        {
+            printf("%4d ",a[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void tich_matrix(int a[][3],int b[][3])
+{
+    int c[3][3];
+    int i,j,p,t;
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+        {
+            t=0;
+            for(p=0; p<3; p++)
+            {
+                c[i][j]=t+a[i][p]*b[p][j];
+                t=c[i][j];
+            }
+        }
+    }
+    inMang(a);
+    printf("*\n");
+    inMang(b);
+    printf("=\n");
+    inMang(c);
+}
+
+
+int main()
+{
+    int a[3][3];
+    int b[3][3];
+    int n,i;
+    printf("Nhap ma tran cap 3x3 thu 1 :\n");
+    nhap(a);
+    printf("Nhap ma tran cap 3x3 thu 2 :\n");
+    nhap(b);
+    printf("================================\n");
+    printf("Tich 2 ma tran la :\n");
+    tich_matrix(a,b);
+    return 0;
+}
