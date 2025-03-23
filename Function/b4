@@ -1,0 +1,90 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void nhap(int a[][100],int n)
+{
+    int i,j;
+    for(i=0; i<n; i++)
+    {
+        for(j=0; j<n; j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+}
+
+void inMang(int a[][100],int n)
+{
+    int i,j;
+    for(i=0; i<n; i++)
+    {
+        printf("|");
+        for(j=0; j<n; j++)
+        {
+            printf("%4d ",a[i][j]);
+        }
+        printf("|\n");
+    }
+    printf("\n");
+}
+
+void tong_matrix(int a[][100],int b[][100],int n)
+{
+    int c[100][100];
+    int i,j;
+    for(i=0; i<n; i++)
+    {
+        for(j=0; j<n; j++)
+        {
+            c[i][j]=a[i][j]+b[i][j];
+        }
+    }
+    inMang(a,n);
+    printf("+\n\n");
+    inMang(b,n);
+    printf("=\n\n");
+    inMang(c,n);
+}
+
+void tich_matrix(int a[][100],int b[][100],int n)
+{
+    int c[100][100];
+    int i,j,p,t;
+    for(i=0; i<n; i++)
+    {
+        for(j=0; j<n; j++)
+        {
+            t=0;
+            for(p=0; p<3; p++)
+            {
+                c[i][j]=t+a[i][p]*b[p][j];
+                t=c[i][j];
+            }
+        }
+    }
+    inMang(a,n);
+    printf("*\n\n");
+    inMang(b,n);
+    printf("=\n\n");
+    inMang(c,n);
+}
+
+int main()
+{
+    int a[100][100];
+    int b[100][100];
+    int n;
+    printf("Nhap cap ma tran vuong :");
+    scanf("%d",&n);
+    printf("Nhap ma tran thu nhat:\n");
+    nhap(a,n);
+    printf("Nhap ma tran thu hai:\n");
+    nhap(b,n);
+    printf("================================================|\n");
+    printf("Tong 2 ma tran :\n");
+    tong_matrix(a,b,n);
+    printf("Tich 2 ma tran :\n");
+    tich_matrix(a,b,n);
+    return 0;
+}
