@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <malloc.h>
+
+void nhap(int *a,int n)
+{
+    int i;
+    for(i=0; i<n; i++)
+    {
+        scanf("%d",&a[i]);
+    }
+}
+
+void in(int *a,int n)
+{
+    int i;
+    for(i=0; i<n; i++)
+    {
+        printf("%d ",a[i]);
+    }
+}
+
+void doiCho(int a[],int i, int j)
+{
+    int t;
+    t=a[i];
+    a[i]=a[j];
+    a[j]=t;
+}
+
+void sapXep(int *a,int *b, int n,int m)
+{
+    int h[20000];
+    int i,j=0,c=0,d=0;
+    while(c!=n&&d!=m)
+    {
+        if(a[c]>=b[d])
+        {
+            h[j]=b[d];
+            d++;
+        }
+        else if(a[c]<b[d])
+        {
+            h[j]=a[c];
+            c++;
+        }
+        j++;
+    }
+    while(c!=n)
+    {
+        h[j]=a[c];
+        j++;
+        c++;
+    }
+    while(d!=m)
+    {
+        h[j]=b[d];
+        j++;
+        d++;
+    }
+    in(h,j);
+}
+
+int main()
+{
+    int a[10000];
+    int b[10000];
+    int n,i;
+    printf("Muon nhap bao nhieu so o mang 1 ?\n");
+    scanf("%d",&n);
+    printf("Vay thi nhap di: ");
+    nhap(a,n);
+    printf("Muon nhap bao nhieu so o mang 2 ?\n");
+    scanf("%d",&i);
+    printf("Vay thi nhap di: ");
+    nhap(b,i);
+    printf("================================================\n");
+    printf("2 mang cua ban da duoc ghep va sap xep tang dan:\n");
+    sapXep(a,b,n,i);
+    return 0;
+}
