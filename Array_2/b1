@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <malloc.h>
+
+void nhap(int a[][3])
+{
+    int i,j;
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+}
+
+void inMang(int a[][3])
+{
+    int i,j;
+    for(i=0; i<3; i++)
+    {
+        for(j=0; j<3; j++)
+        {
+            printf("%d ",a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+
+int main()
+{
+    int a[3][3]= {1,2,3,4,5,6,7,8,9};
+    int b[3][3];
+    int n,i;
+    printf("Ma tran duoc khai bao san :\n");
+    inMang(a);
+    printf("Nhap so vao ma tran cap 3x3 di :\n");
+    nhap(b);
+    printf("================================\n");
+    printf("Ma tran duoc nhap tu ban phim :\n");
+    inMang(b);
+    return 0;
+}
