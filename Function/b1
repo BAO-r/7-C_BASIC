@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int mu(int a,int y)
+{
+    int i,c=1;
+    for(i=0; i<y; i++)
+    {
+        c=c*a;
+    }
+    return c;
+}
+
+int main()
+{
+    int x,y,c;
+    printf("Nhap so :\n");
+    scanf("%d",&x);
+    printf("Nhap mu :\n");
+    scanf("%d",&y);
+    printf("================================\n");
+    c=mu(x,y);
+    printf("%d^%d = %d\n",x,y,c);
+    return 0;
+}
