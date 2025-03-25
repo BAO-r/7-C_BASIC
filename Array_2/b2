@@ -4,57 +4,64 @@
 #include <string.h>
 #include <malloc.h>
 
-void nhap(int a[][3])
+void nhap(int a[][100],int n,int m)
 {
     int i,j;
-    for(i=0; i<3; i++)
+    for(i=0; i<n; i++)
     {
-        for(j=0; j<3; j++)
+        for(j=0; j<m; j++)
         {
             scanf("%d",&a[i][j]);
         }
     }
 }
 
-void inMang(int a[][3])
+void inMang(int a[][100],int n,int m)
 {
     int i,j;
-    for(i=0; i<3; i++)
+    for(i=0; i<n; i++)
     {
-        for(j=0; j<3; j++)
+        printf("|");
+        for(j=0; j<m; j++)
         {
             printf("%4d ",a[i][j]);
         }
-        printf("\n");
+        printf("|\n");
     }
     printf("\n");
 }
 
-void tong_matrix(int a[][3],int b[][3])
+void tong_matrix(int a[][100],int b[][100],int c[][100],int n,int m)
 {
-    int c[3][3];
     int i,j;
-    for(i=0; i<3; i++)
+    for(i=0; i<n; i++)
     {
-        for(j=0; j<3; j++)
+        for(j=0; j<m; j++)
         {
             c[i][j]=a[i][j]+b[i][j];
         }
     }
-    inMang(c);
 }
 
 int main()
 {
-    int a[3][3];
-    int b[3][3];
-    int n,i;
-    printf("Nhap ma tran cap 3x3 thu 1 :\n");
-    nhap(a);
-    printf("Nhap ma tran cap 3x3 thu 2 :\n");
-    nhap(b);
+    int a[100][100];
+    int b[100][100];
+    int c[100][100];
+    int n,m;
+    printf("Nhap cap ma tran N x M:");
+    scanf("%d %d",&n,&m);
+    printf("Nhap ma tran cap %dx%d thu 1 :\n",n,m);
+    nhap(a,n,m);
+    printf("Nhap ma tran cap %dx%d thu 2 :\n",n,m);
+    nhap(b,n,m);
     printf("================================\n");
     printf("Tong 2 ma tran la :\n");
-    tong_matrix(a,b);
+    tong_matrix(a,b,c,n,m);
+    inMang(a,n,m);
+    printf("+\n");
+    inMang(b,n,m);
+    printf("=\n");
+    inMang(c,n,m);
     return 0;
 }
