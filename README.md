@@ -24,4 +24,5 @@ After your new repository is created, wait about 20 seconds, then refresh the pa
 Get help: Post in our discussion board • Review the GitHub status page
 
 © 2023 GitHub • Code of Conduct • MIT License
+
 @BAO-r ➜ /workspaces/copilot-codespaces-vscode (main) $
