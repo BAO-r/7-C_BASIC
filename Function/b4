@@ -2,25 +2,25 @@
 #include <stdlib.h>
 #include <math.h>
 
-void nhap(int a[][100],int n)
+void nhap(int a[][100],int n,int m)
 {
     int i,j;
     for(i=0; i<n; i++)
     {
-        for(j=0; j<n; j++)
+        for(j=0; j<m; j++)
         {
             scanf("%d",&a[i][j]);
         }
     }
 }
 
-void inMang(int a[][100],int n)
+void inMang(int a[][100],int n,int m)
 {
     int i,j;
     for(i=0; i<n; i++)
     {
         printf("|");
-        for(j=0; j<n; j++)
+        for(j=0; j<m; j++)
         {
             printf("%4d ",a[i][j]);
         }
@@ -29,62 +29,97 @@ void inMang(int a[][100],int n)
     printf("\n");
 }
 
-void tong_matrix(int a[][100],int b[][100],int n)
+void tong_matrix(int a[][100],int b[][100],int n,int m,int s,int d)
 {
     int c[100][100];
     int i,j;
     for(i=0; i<n; i++)
     {
-        for(j=0; j<n; j++)
+        for(j=0; j<m; j++)
         {
             c[i][j]=a[i][j]+b[i][j];
         }
     }
-    inMang(a,n);
+    printf("Tong 2 ma tran :\n");
+    inMang(a,n,m);
     printf("+\n\n");
-    inMang(b,n);
+    inMang(b,s,d);
     printf("=\n\n");
-    inMang(c,n);
+    inMang(c,n,m);
 }
 
-void tich_matrix(int a[][100],int b[][100],int n)
+void tich_matrix(int a[][100],int b[][100],int n,int m,int s,int d)
 {
     int c[100][100];
-    int i,j,p,t;
+    int i,j,p;
     for(i=0; i<n; i++)
     {
-        for(j=0; j<n; j++)
+        for(j=0; j<d; j++)
         {
-            t=0;
-            for(p=0; p<3; p++)
+            for(p=0; p<m; p++)
             {
-                c[i][j]=t+a[i][p]*b[p][j];
-                t=c[i][j];
+                c[i][j]+=(a[i][p]*b[p][j]);
             }
         }
     }
-    inMang(a,n);
+    printf("Tich 2 ma tran :\n");
+    inMang(a,n,m);
     printf("*\n\n");
-    inMang(b,n);
+    inMang(b,s,d);
     printf("=\n\n");
-    inMang(c,n);
+    inMang(c,n,d);
+}
+
+void nhap_matran(int *a[][100],int *b[][100])
+{
+    int n,m,s,d;
+    printf("Nhap cap ma tran thu nhat :");
+    scanf("%d %d",&n,&m);
+    printf("Nhap phan tu cua ma tran 1 cap %dx%d:\n",n,m);
+    nhap(a,n,m);
+    printf("Nhap cap ma tran thu hai :");
+    scanf("%d %d",&s,&d);
+    printf("Nhap phan tu cua ma tran 2 cap %dx%d:\n",s,d);
+    nhap(b,s,d);
 }
 
 int main()
 {
     int a[100][100];
     int b[100][100];
-    int n;
-    printf("Nhap cap ma tran vuong :");
-    scanf("%d",&n);
-    printf("Nhap ma tran thu nhat:\n");
-    nhap(a,n);
-    printf("Nhap ma tran thu hai:\n");
-    nhap(b,n);
+    int n,m,s,d,t;
+    printf("Nhap 1 de tinh tong 2 ma tran.\nNhap 2 de tinh tich 2 ma tran.\nNhap 0 de stop!\n");
     printf("================================================|\n");
-    printf("Tong 2 ma tran :\n");
-    tong_matrix(a,b,n);
-    printf("Tich 2 ma tran :\n");
-    tich_matrix(a,b,n);
+    do
+    {
+        printf("Lua chon: ");
+        scanf("%d",&t);
+        switch(t)
+        {
+        case 1:
+            printf("Nhap cap ma tran thu nhat :");
+            scanf("%d %d",&n,&m);
+            printf("Nhap phan tu cua ma tran 1 cap %dx%d:\n",n,m);
+            nhap(a,n,m);
+            printf("Nhap cap ma tran thu hai :");
+            scanf("%d %d",&s,&d);
+            printf("Nhap phan tu cua ma tran 2 cap %dx%d:\n",s,d);
+            nhap(b,s,d);
+            tong_matrix(a,b,n,m,s,d);
+            break;
+        case 2:
+            printf("Nhap cap ma tran thu nhat :");
+            scanf("%d %d",&n,&m);
+            printf("Nhap phan tu cua ma tran 1 cap %dx%d:\n",n,m);
+            nhap(a,n,m);
+            printf("Nhap cap ma tran thu hai :");
+            scanf("%d %d",&s,&d);
+            printf("Nhap phan tu cua ma tran 2 cap %dx%d:\n",s,d);
+            nhap(b,s,d);
+            tich_matrix(a,b,n,m,s,d);
+            break;
+        }
+    }
+    while(t!=0);
     return 0;
 }
