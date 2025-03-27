@@ -4,66 +4,72 @@
 #include <string.h>
 #include <malloc.h>
 
-void nhap(int a[][3])
+void nhap(int a[][100],int n,int m)
 {
     int i,j;
-    for(i=0; i<3; i++)
+    for(i=0; i<n; i++)
     {
-        for(j=0; j<3; j++)
+        for(j=0; j<m; j++)
         {
             scanf("%d",&a[i][j]);
         }
     }
 }
 
-void inMang(int a[][3])
+void inMang(int a[][100],int n,int m)
 {
     int i,j;
-    for(i=0; i<3; i++)
+    for(i=0; i<n; i++)
     {
-        for(j=0; j<3; j++)
+        printf("|");
+        for(j=0; j<m; j++)
         {
             printf("%4d ",a[i][j]);
         }
-        printf("\n");
+        printf("|\n");
     }
+    printf("\n");
 }
 
-void tich_matrix(int a[][3],int b[][3])
+void tich_matrix(int a[][100],int b[][100],int n,int m,int s,int d)
 {
-    int c[3][3];
+    int c[100][100];
     int i,j,p,t;
-    for(i=0; i<3; i++)
+    for(i=0; i<n; i++)
     {
-        for(j=0; j<3; j++)
+        for(j=0; j<d; j++)
         {
             t=0;
-            for(p=0; p<3; p++)
+            for(p=0; p<m; p++)
             {
                 c[i][j]=t+a[i][p]*b[p][j];
                 t=c[i][j];
             }
         }
     }
-    inMang(a);
-    printf("*\n");
-    inMang(b);
-    printf("=\n");
-    inMang(c);
+    inMang(a,n,m);
+    printf("*\n\n");
+    inMang(b,s,d);
+    printf("=\n\n");
+    inMang(c,n,d);
 }
 
 
 int main()
 {
-    int a[3][3];
-    int b[3][3];
-    int n,i;
-    printf("Nhap ma tran cap 3x3 thu 1 :\n");
-    nhap(a);
-    printf("Nhap ma tran cap 3x3 thu 2 :\n");
-    nhap(b);
+    int a[100][100];
+    int b[100][100];
+    int n,m,s,d;
+    printf("Nhap cap ma tran thu 1:");
+    scanf("%d %d",&n,&m);
+    printf("Nhap ma tran thu 1 cap %dx%d :\n",n,m);
+    nhap(a,n,m);
+    printf("Nhap cap ma tran thu 2:");
+    scanf("%d %d",&s,&d);
+    printf("Nhap ma tran thu 2 cap %dx%d :\n",s,d);
+    nhap(b,s,d);
     printf("================================\n");
     printf("Tich 2 ma tran la :\n");
-    tich_matrix(a,b);
+    tich_matrix(a,b,n,m,s,d);
     return 0;
 }
