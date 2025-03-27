@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void Hexa(int n)
+{
+    char a[16]="0123456789ABCDEF";
+    if (n<16)
+    {
+        printf("%c",a[n]);
+        return;
+    }
+    else
+    {
+        Hexa(n/16);
+    }
+    printf("%c",a[n%16]);
+}
+
+void Octa(int n)
+{
+    char a[8]="01234567";
+    if (n<8)
+    {
+        printf("%c",a[n]);
+        return;
+    }
+    else
+    {
+        Octa(n/8);
+    }
+    printf("%c",a[n%8]);
+}
+
+void Bina(int n)
+{
+    char a[2]="01";
+    if (n<2)
+    {
+        printf("%c",a[n]);
+        return;
+    }
+    else
+    {
+        Bina(n/2);
+    }
+    printf("%c",a[n%2]);
+}
+
+int main()
+{
+    int i,n,t;
+    printf("Nhap 1 so nguyen :");
+    scanf("%d",&n);
+    printf("========================================\n");
+    printf("Bieu dien co so 2 cua %d la: ",n);
+    Bina(n);
+    printf("\nBieu dien co so 8 cua %d la: ",n);
+    Octa(n);
+    printf("\nBieu dien co so 16 cua %d la: ",n);
+    Hexa(n);
+    printf("\n");
+    return 0;
+}
