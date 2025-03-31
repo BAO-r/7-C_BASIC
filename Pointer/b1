@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void doi_cho(int *a,int *b)
+{
+    int t;
+    t=*a;
+    *a=*b;
+    *b=t;
+}
+
+int main()
+{
+    int a,b;
+    printf("Nhap gia tri thu nhat(a): ");
+    scanf("%d",&a);
+    printf("Nhap gia tri thu hai(b):  ");
+    scanf("%d",&b);
+    printf("_______________________________________________\n");
+    printf("Hai gia tri a va b vua nhap lan luot la: %d, %d\n",a,b);
+    printf("===============================================\n");
+    doi_cho(&a,&b);
+    printf("Gia tri cua a va b da bi doi cho nhau.\n");
+    printf("Gia tri thu nhat bay gio la: %d\n",a);
+    printf("Gia tri thu hai bay gio la:  %d\n",b);
+    return 0;
+}
