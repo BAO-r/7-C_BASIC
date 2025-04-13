@@ -1,0 +1,109 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+typedef struct
+{
+    int stt;
+    char ten[55];
+    int gia;
+    int so;
+} san_pham;
+
+typedef struct Node
+{
+    san_pham data;
+    struct Node *next;
+} Node;
+
+typedef struct
+{
+    Node *first;
+    Node *last;
+} Linked_list;
+
+Node* create_node(int n)
+{
+    san_pham sp;
+    sp.stt=n;
+    printf("Nhap Ten hang:");
+    gets(sp.ten);
+    printf("Nhap Don gia:");
+    scanf("%d",&sp.gia);
+    printf("Nhap So luong:");
+    scanf("%d",&sp.so);
+    Node *node=(Node*)malloc(sizeof(Node));
+    node->data=sp;
+    node->next=NULL;
+    return node;
+}
+
+Linked_list* create_list()
+{
+    Linked_list *list=(Linked_list*)malloc(sizeof(Linked_list));
+    list->first=NULL;
+    list->last=NULL;
+    return list;
+}
+
+void add_first_node(Linked_list *list,Node *node)
+{
+    list->first=node;
+    list->last=node;
+}
+
+void insert_to_last(Linked_list *list,Node *node)
+{
+    list->last->next=node;
+    list->last=node;
+}
+
+void print_list(Linked_list *list)
+{
+    Node *node=list->first;
+    int t,total=0,i=1;
+    while(node!=NULL)
+    {
+        t=(node->data.gia)*(node->data.so);
+        printf("%3d%9s%11d%12d%13d\n",i++,node->data.ten,node->data.gia,node->data.so,t);
+        node=node->next;
+        total+=t;
+    }
+    printf("____________________________Tong tien:%10d\n",total);
+}
+
+int main()
+{
+    int n;
+    Node *node;
+    Node *np;
+    Linked_list *list=create_list();
+    printf("Nhap so khac 0 de nhap hang.\nNhap 0 de ngung nhap hang.\n");
+    printf("________________________________________________\n");
+    printf("Nhap STT:");
+    scanf("%d",&n);
+    getchar();
+    node=create_node(n);
+    np=node;
+    add_first_node(list,node);
+    printf("________________________________________________\n");
+    printf("Nhap STT:");
+    scanf("%d",&n);
+    while(n!=0)
+    {
+        getchar();
+        node=create_node(n);
+        insert_to_last(list,node);
+        np=node;
+        printf("________________________________________________\n");
+        printf("Nhap STT:");
+        scanf("%d",&n);
+    }
+
+    printf("\n================================================\n");
+    printf("_______________ SO LIEU BAN HANG _______________\n");
+    printf("STT Ten hang    Don gia    So luong   Thanh tien\n");
+    print_list(list);
+    return 0;
+}
