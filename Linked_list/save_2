@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+typedef struct
+{
+    int sbd;
+    char ten[55];
+    float dtoan;
+    float dly;
+    float danh;
+    float tong;
+} san_pham;
+
+typedef struct Node
+{
+    san_pham data;
+    struct Node *next;
+} Node;
+
+typedef struct
+{
+    Node *first;
+    Node *last;
+} Linked_list;
+
+Node* create_node(int n)
+{
+    san_pham sp;
+    printf("Nhap So Bao Danh:");
+    scanf("%d",&sp.sbd);
+    getchar();
+    printf("Nhap Ho ten:");
+    gets(sp.ten);
+    printf("Nhap Diem Toan:");
+    scanf("%f",&sp.dtoan);
+    printf("Nhap Diem Ly:");
+    scanf("%f",&sp.dly);
+    printf("Nhap Diem Tieng Anh:");
+    scanf("%f",&sp.danh);
+    Node *node=(Node*)malloc(sizeof(Node));
+    node->data=sp;
+    node->next=NULL;
+    return node;
+}
+
+Linked_list* create_list()
+{
+    Linked_list *list=(Linked_list*)malloc(sizeof(Linked_list));
+    list->first=NULL;
+    list->last=NULL;
+    return list;
+}
+
+void add_first_node(Linked_list *list,Node *node)
+{
+    list->first=node;
+    list->last=node;
+}
+
+void insert_to_last(Linked_list *list,Node *node)
+{
+    list->last->next=node;
+    list->last=node;
+}
+
+void print_list(Linked_list *list)
+{
+    printf("\n==========================================================\n");
+    printf("________________ DANH SACH DIEM THI THPT _________________\n");
+    printf("STT|SBD   |Ho ten         |Diem Toan|Diem Ly|Diem TA| Tong\n");
+    Node *node=list->first;
+    float t;
+    int i=1;
+    while(node!=NULL)
+    {
+        t=(node->data.dtoan)+(node->data.dly)+(node->data.danh);
+        printf("%3d|%6d|%15s|%5.f    |%4.f   |%4.f   |%5.f\n",i++,node->data.sbd,node->data.ten,node->data.dtoan,node->data.dly,node->data.danh,t);
+        node=node->next;
+    }
+}
+
+void nhap(Linked_list *list)
+{
+    int n;
+    Node *node;
+    printf("__________________________________________________________\n");
+    printf("Nhap lua chon:");
+    scanf("%d",&n);
+    while(n!=0)
+    {
+        getchar();
+        node=create_node(n);
+        insert_to_last(list,node);
+        
+        printf("__________________________________________________________\n");
+        printf("Nhap STT:");
+        scanf("%d",&n);
+    }
+}
+
+int main()
+{
+    int n;
+    Node *node;
+    Linked_list *list=create_list();
+    printf("Nhap so khac 0 de nhap thong tin.\nNhap 0 de ngung.\n");
+    printf("__________________________________________________________\n");
+    printf("Nhap lua chon:");
+    scanf("%d",&n);
+    getchar();
+    node=create_node(n);
+    add_first_node(list,node);
+    nhap(list);
+    print_list(list);
+    return 0;
+}
