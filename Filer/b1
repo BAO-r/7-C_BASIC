@@ -42,7 +42,6 @@ void tong_matrix(char *fp,int a[][100],int b[][100],int c[][100],int n,int m)
         for(j=0; j<m; j++)
         {
             c[i][j]=a[i][j]+b[i][j];
-            //fwrite(&c[i][j],sizeof(int),1,fp);
         }
     }
     inMang(fp,a,n,m);
