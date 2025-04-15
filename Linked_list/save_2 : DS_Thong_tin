@@ -85,6 +85,13 @@ void nhap(Linked_list *list)
 {
     int n;
     Node *node;
+    printf("Nhap so khac 0 de nhap thong tin.\nNhap 0 de ngung.\n");
+    printf("__________________________________________________________\n");
+    printf("Nhap lua chon:");
+    scanf("%d",&n);
+    getchar();
+    node=create_node(n);
+    add_first_node(list,node);
     printf("__________________________________________________________\n");
     printf("Nhap lua chon:");
     scanf("%d",&n);
@@ -105,13 +112,6 @@ int main()
     int n;
     Node *node;
     Linked_list *list=create_list();
-    printf("Nhap so khac 0 de nhap thong tin.\nNhap 0 de ngung.\n");
-    printf("__________________________________________________________\n");
-    printf("Nhap lua chon:");
-    scanf("%d",&n);
-    getchar();
-    node=create_node(n);
-    add_first_node(list,node);
     nhap(list);
     print_list(list);
     return 0;
