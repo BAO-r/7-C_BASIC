@@ -68,6 +68,7 @@ int main()
     int a[10000];
     int b[10000];
     int n,i;
+    printf("Nhap mang tang dan.\n");
     printf("Muon nhap bao nhieu so o mang 1 ?\n");
     scanf("%d",&n);
     printf("Vay thi nhap di: ");
