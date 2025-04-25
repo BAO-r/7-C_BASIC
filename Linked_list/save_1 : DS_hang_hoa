@@ -23,6 +23,8 @@ typedef struct
     Node *last;
 } Linked_list;
 
+Node *prev_node;
+
 Node* create_node(int n)
 {
     san_pham sp;
@@ -53,10 +55,62 @@ void add_first_node(Linked_list *list,Node *node)
     list->last=node;
 }
 
+void insert_to_first(Linked_list *list, Node *node)
+{
+    node->next = list->first;
+    list->first = node;
+}
+
 void insert_to_last(Linked_list *list,Node *node)
 {
     list->last->next=node;
     list->last=node;
+}
+
+Node* search_node(Linked_list *list, int key)
+{
+    prev_node = NULL;
+    Node *node = list->first;
+    while(node != NULL)
+    {
+        if(node->data.gia == key)
+        {
+            return node;
+        }
+        prev_node = node;
+        node = node->next;
+    }
+    return NULL;
+}
+
+void delete_node(Linked_list *list, int key)
+{
+    Node *found = search_node(list, key);
+    if(found != NULL)
+    {
+        if(list->first == found)
+        {
+            list->first = found->next;
+            if(list->first == NULL)
+            {
+                list->last = NULL;
+            }
+        }
+        else if(list->last == found)
+        {
+            prev_node->next = NULL;
+            list->last = prev_node;
+        }
+        else
+        {
+            prev_node->next = found->next;
+        }
+        free(found);
+    }
+    else
+    {
+        printf("Not found node with key = %d\n", key);
+    }
 }
 
 void print_list(Linked_list *list)
@@ -70,7 +124,38 @@ void print_list(Linked_list *list)
         node=node->next;
         total+=t;
     }
-    printf("____________________________Tong tien:%10d\n",total);
+    printf("============================Tong tien:%10d\n\n",total);
+}
+
+void Sort_list(Linked_list *list)
+{
+    Node *node=list->first;
+    Node *np=(Node*)malloc(sizeof(Node));
+    Node *temp;
+    Node *min;
+    int i=1;
+    while(node!=NULL)
+    {
+        min=node;
+        temp=node->next;
+        while(temp!=NULL)
+        {
+            if(min->data.gia<temp->data.gia)
+            {
+                min=temp;
+            }
+            temp=temp->next;
+        }
+        if(min!=node->data.gia)
+        {
+            np->data=node->data;
+            node->data=min->data;
+            min->data=np->data;
+        }
+        node=node->next;
+    }
+    free(np);
+    print_list(list);
 }
 
 int main()
@@ -79,7 +164,7 @@ int main()
     Node *node;
     Node *np;
     Linked_list *list=create_list();
-    printf("Nhap so khac 0 de nhap hang.\nNhap 0 de ngung nhap hang.\n");
+    printf("Muon nhap so thu tu de nhap hang.\nNhap 0 de ngung nhap hang.\n");
     printf("________________________________________________\n");
     printf("Nhap STT:");
     scanf("%d",&n);
@@ -95,15 +180,73 @@ int main()
         getchar();
         node=create_node(n);
         insert_to_last(list,node);
+        //insert_sorted(list,np,node);
         np=node;
         printf("________________________________________________\n");
         printf("Nhap STT:");
         scanf("%d",&n);
     }
-
     printf("\n================================================\n");
     printf("_______________ SO LIEU BAN HANG _______________\n");
     printf("STT Ten hang    Don gia    So luong   Thanh tien\n");
     print_list(list);
+    Sort_list(list);
     return 0;
 }
+
+/*
+1
+sach
+5
+100
+2
+tay
+1
+500
+3
+but
+2
+300
+4
+vo
+5
+100
+5
+thuoc
+2
+300
+6
+may tinh
+400
+50
+0
+*/
+
+
+/*
+1
+tay
+1
+500
+2
+sach
+5
+100
+3
+but
+2
+300
+4
+thuoc
+2
+300
+5
+vo
+5
+100
+6
+may tinh
+400
+50
+0
+*/
